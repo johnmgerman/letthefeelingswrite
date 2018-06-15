@@ -1,0 +1,5 @@
+{% for title in folders %}
+	{% if title != '.' and title != '..' %}
+		<li><a href="?fogjw={{ title }}">{{ title }}</a></li>
+	{% endif %}
+{% endfor %}

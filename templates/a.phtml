@@ -1,0 +1,6 @@
+{% for poetry in PoetryStuff|slice(0, 3) %}
+	<li class="first">
+	<p class="date"><a class="iejern" href="javascript:;" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getTitle() }}</a></p>
+	<p><a href="javascript:;" class="iejern" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getSection() }}</a></p>
+	</li>
+{% endfor %}

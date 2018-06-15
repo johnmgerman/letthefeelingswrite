@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Poetry | John German</title>
+<meta charset="utf-8">
+<noscript>
+<link rel="stylesheet" href="css/5grid/core.css">
+<link rel="stylesheet" href="css/5grid/core-desktop.css">
+<link rel="stylesheet" href="css/5grid/core-1200px.css">
+<link rel="stylesheet" href="css/5grid/core-noscript.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-desktop.css">
+</noscript>
+<script src="css/5grid/jquery.js"></script>
+<script src="css/5grid/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+<!--[if IE 9]>
+<link rel="stylesheet" href="css/style-ie9.css">
+<![endif]-->
+<script>
+	$(document).ready(function() {
+		$(".iejern").click(function() {
+			asdf($(this).attr('i'), $(this).attr('o'));
+		});
+		
+		function asdf(i,o) {
+			$.ajax({
+			  url: 'ajax_poetry_john_german.php',
+			  type: 'GET',
+			  data: 'poetryorelse=' + i + '&iejer=' + o,
+			  success: function(data) {
+				$("#p_title").html(JSON.parse(data).title);
+				$("#p_kienre").html(JSON.parse(data).section);
+				window.location.href = '#asdf';
+			  },
+			  error: function(e) {
+				  alert(e);
+			  }
+			});
+		}
+		
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		
+		if (getParameterByName('fogjw') == null || (getParameterByName('fogjw') != null && getParameterByName('fogjw') == 'poetry'))
+			if (getParameterByName('fogjw') == 'poetry')
+				asdf('a_photograph.html', 'poetry');
+			else
+				asdf('im_home.html', 'songish');
+	});
+</script>
+<style>
+
+	.god {
+		font-size: 1.7em;
+	}
+	
+	.bless {
+		font-size: 1.3em;
+	}
+	
+</style>
+</head>
+<body>
+<div id="header-wrapper">
+  <header id="header" class="5grid-layout">
+    <div id="row">
+      <div id="12u">
+        <div id="logo">
+          <h1><a href="?fogjw=poetry" class="mobileUI-site-name">Poetry</a></h1>
+          <p>John German - Let the feelings write.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="12u">
+        <div class="5grid-layout" id="menu">
+          <nav class="mobileUI-site-nav">
+            <ul>
+			  {% for title in folders %}
+					{% if title != '.' and title != '..' %}
+						<li><a href="?fogjw={{ title }}">{{ title }}</a></li>
+					{% endif %}
+				{% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<div id="wrapper">
+  <a name="asdf"></a>
+  <div class="5grid-layout" id="page-wrapper">
+    <div class="row">
+      <div class="3u">
+        <section id="pbox1">
+          <h2>Random {{ usd }}</h2>
+          <ul class="style4">
+			<ul>
+			  {% for poetry in PoetryStuff %}
+					<li class="first">
+					<p class="date"><a class="iejern" href="javascript:;" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getTitle() }}</a></p>
+					<p><a href="javascript:;" class="iejern" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getSection() }}</a></p>
+					</li>
+				{% endfor %}
+          </ul>
+        </section>
+      </div>
+      <div class="9u mobileUI-main-content">
+        <section id="pbox3">
+          <h2><center><span id="p_title">{{ st }}</span></center></h2>
+          <p><center  style="line-height: 22px"><span id="p_kienre">{{ tc }}</span>
+		  <br />
+			--------------
+		  <br />
+		  <br />
+		  Written by John German:<br />
+		  <a href="https://www.stage32.com/johngerman" target="_blank">John German - Stage32</a></center></p>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="5grid-layout" id="marketing">
+  <div class="row">
+    <div class="3u">
+      <section>
+        <h2>{{ usd }}</h2>
+		
+        <ul class="style3">
+		  {% for poetry in i %}
+			<li>
+				<a class="iejern" href="javascript:;" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getTitle() }}</a> <img width="22" height="22" src="images/asdf.png" style="visibility: {{ poetry.getTime() }}" />
+			</li>
+		  {% endfor %}
+        </ul>
+      </section>
+    </div>
+    <div class="3u">
+      <section>
+        <h2>{{ usd }} continued</h2>
+        <ul class="style3">
+		  {% for poetry in i9 %}
+			<li>
+				<a class="iejern" href="javascript:;" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getTitle() }}</a> <img width="22" height="22" src="images/asdf.png" style="visibility: {{ poetry.getTime() }}" />
+			</li>
+		  {% endfor %}
+        </ul>
+      </section>
+    </div>
+    <div class="3u">
+      <section>
+        <h2>{{ usd }} continued</h2>
+        <ul class="style3">
+		  {% for poetry in i4 %}
+			<li>
+				<a class="iejern" href="javascript:;" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getTitle() }}</a> <img width="22" height="22" src="images/asdf.png" style="visibility: {{ poetry.getTime() }}" />
+			</li>
+		  {% endfor %}
+        </ul>
+      </section>
+    </div>
+    <div class="3u">
+      <section>
+        <h2>{{ usd }} continued</h2>
+        <ul class="style3">
+		  {% for poetry in i7 %}
+			<li>
+				<a class="iejern" href="javascript:;" i="{{ poetry.getFileName() }}" o="{{ poetry.getFolder() }}">{{ poetry.getTitle() }}</a> <img width="22" height="22" src="images/asdf.png" style="visibility: {{ poetry.getTime() }}" />
+			</li>
+		  {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="5grid-layout" id="copyright">
+  <div class="row">
+    <div class="12u">
+      <section>
+        <p>JOHN GERMAN - LET THE FEELINGS WRITE. | Images: <a href="http://fotogrph.com/">Fotogrph</a> | Design: <a href="http://html5templates.com/">HTML5Templates.com</a><br /><a href="https://www.stage32.com/johngerman" target="_blank">Stage 32</a></a> | <a href="https://www.curtaincallonline.com/profile/john-german/11977" target="_blank">Curtain Call - John German</a></p>
+      </section>
+    </div>
+  </div>
+</div>
+</body>
+</html>
