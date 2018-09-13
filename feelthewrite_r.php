@@ -91,11 +91,14 @@ namespace johngerman\writing\poetic
 			$fogjw = $this->sectionFolder();
 				
 			if (file_exists(self::SECTION . '/' . $fogjw . '/' . $fileName) == false) {
-					if ($fogjw == 'poetry')
+				if ($fogjw == 'poetry')
 						$fileName = 'a_photograph.html';
 					else
 						$fileName = 'im_home.html';
 				}
+				
+				if ($fogjw != 'poetry' && $fogjw != 'songish')
+					$fileName = ($this->_pArray[0]->getFileName());
 			}
 			
 			$this->_fileName = $fileName;
